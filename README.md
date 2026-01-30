@@ -1,5 +1,7 @@
 # Hajj & Umrah Guide Web Application
 
+https://youtu.be/aDy8oE9Usj0
+
 Successfully completed a full-stack web application designed to serve as a digital companion for pilgrims performing Hajj and Umrah. The application provides structured, step-by-step guidance to help users navigate religious rituals with clarity, convenience, and confidence.
 
 Developed using ASP.NET Core MVC and following Agile (Scrum) practices, the project emphasizes usability, scalability, and secure architecture. The platform supports multilingual content, personalized user experiences, and real-time progress tracking, ensuring accessibility for a diverse user base.
