@@ -1,0 +1,68 @@
+﻿@model List<HajjGuide.Models.ChecklistModel >
+@{
+    ViewData["Title"] = "ChecklistItems";
+}
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+
+</head>
+<body class="img js-fullheight" style="background-image: url('/img/pexels-brokenadmiral-16012748.jpg');height:fit-content;background-repeat:no-repeat;background-position:center;">
+
+    <div class="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Add Items</h1>
+                            </div>
+
+                            <form class="user" method="post" asp-action="AddItem">
+                                <div class="form-group row">
+                                    <div class="col-sm-6">
+                                        <label for="name">Item:</label>
+
+                                        <input type="text" name="items" class="form-control form-control-user" placeholder="Enter Item's Name">
+                                    </div>
+                                </div>
+
+                      @*           <div class="form-group row">
+                                    <label for="name">Item Urdu:</label>
+                                    <input type="text" name="DescriptionUrdu" class="form-control form-control-user" placeholder="Enter Item Name in urdu">
+                                </div>
+ *@
+                               
+
+                                <button type="submit" class="btn btn-primary btn-user btn-block">Save</button>
+                            </form>
+
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

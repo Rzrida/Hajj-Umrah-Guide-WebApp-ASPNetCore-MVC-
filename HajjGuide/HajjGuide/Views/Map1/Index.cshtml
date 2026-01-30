@@ -1,0 +1,60 @@
+﻿@model List<HajjGuide.Models.Map1Model>
+@{
+    ViewData["Title"] = "Map1";
+}
+ 
+<body class="img js-fullheight" style="background-image: url('/img/pexels-brokenadmiral-16012748.jpg');height:fit-content;background-repeat:no-repeat;background-position:center;background-size:cover;">
+ 
+            <div class="container-fluid" style="opacity:0.94">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class=" card mb-3,no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width:100%;">
+                        <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                            <a> Hajj Map: </a>
+                                        </div>
+
+                                    <section class="card mb-3, no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width: 100%;">
+                                        <div class="card border-left-primary shadow h-100 py-2">
+                                            <div class="card-body">
+                                                <div class="row no-gutters align-items-center">
+                                                    <div class="col mr-2 text-center">
+                                                       ``
+                                                            <img src="/img/imgonline-com-ua-twotoone-wcso6plfsiyitkcx (1).jpg" alt="Map-1" class="img-fluid" usemap="#map-1">
+                                                            <map name="map-1">
+                                                                @*      @for (int i = 0; i < Model.Count; i++)
+                                                            {
+                                                                <area shape="circle" coords="139,120,40" alt="@Model[i].Desc" href="link@Model[i].Id.html" data-place-id="@Model[i].Id"> *@
+                                                            <area shape="circle" coords="139,100,40" alt="path1" href="@Url.Action("Index", "MapSteps", new { placeid = 1})">
+                                                            <area shape="circle" coords="380,220,40" alt="path2" href="@Url.Action("Index", "MapSteps", new { placeid = 2})">
+                                                            <area shape="circle" coords="630,350,40" alt="path3" href="@Url.Action("Index", "MapSteps", new { placeid = 2})">
+                                                            <area shape="circle" coords="830,300,30" alt="path4" href="@Url.Action("Index", "MapSteps", new { placeid = 3})">
+                                                            <area shape="circle" coords="900,280,30" alt="path11" href="@Url.Action("Index", "MapSteps", new { placeid = 3})">
+                                                            <area shape="circle" coords="950,220,40" alt="path5" href="@Url.Action("Index", "MapSteps", new { placeid = 4})">
+                                                            <area shape="circle" coords="1020,180,30" alt="path6" href="@Url.Action("Index", "MapSteps", new { placeid = 6})">
+                                                            <area shape="circle" coords="1180,40,30" alt="path7" href="@Url.Action("Index", "MapSteps", new { placeid = 7})">
+                                                            <area shape="circle" coords="1060,80,30" alt="path8" href="@Url.Action("Index", "MapSteps", new { placeid = 8})">
+                                                            <area shape="circle" coords="980,90,30" alt="path9" href="@Url.Action("Index", "MapSteps", new { placeid = 6})">
+                                                            <area shape="circle" coords="850,100,30" alt="path10" href="@Url.Action("Index", "MapSteps", new { placeid = 9})">
+
+                                                            </map>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+</body>

@@ -1,0 +1,65 @@
+﻿@model List<HajjGuide.Models.LanguageControlModel>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+@{
+    ViewData["Title"] = "LanguageControl";
+}
+
+<body class="img js-fullheight" style="background-image: url('/img/pexels-brokenadmiral-16012748.jpg');height:fit-content;background-repeat:no-repeat;background-position:center;background-size:cover;">
+    <div class="container-fluid" style="opacity:0.94">
+        <div class="row">
+            <div class="col-md-12">
+                <div class=" card mb-3,no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width:100%;">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                        <a> Select the language: </a>
+                                    </div>
+
+                                    <br>
+
+
+
+<form method="post" action="@Url.Action("UpdateLClist")">
+    @foreach (var item in Model)
+    {
+        <section class="card mb-3 no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width:100%;">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div>
+                                <input class="form-check-input" type="checkbox" id="chk-@item.id-Translation" name="LC[@item.id][Translation]" value="1" @(item.Translation == 1 ? "checked" : "")>
+                                <a><strong>Translation</strong></a>
+                            </div>
+                            <div>
+                                <input class="form-check-input" type="checkbox" id="chk-@item.id-Translitration" name="LC[@item.id][Translitration]" value="1" @(item.Translitration == 1 ? "checked" : "")>
+                                <a><strong>Translitration</strong></a>
+                            </div>
+                            <div>
+                                <input class="form-check-input" type="checkbox" id="chk-@item.id-UrduArabic" name="LC[@item.id][UrduArabic]" value="1" @(item.UrduArabic == 1 ? "checked" : "")>
+                                <a><strong>Urdu/Arabic</strong></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+    <button type="submit" class="btn btn-primary">Done</button>
+</form>
+
+
+                                    <br>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

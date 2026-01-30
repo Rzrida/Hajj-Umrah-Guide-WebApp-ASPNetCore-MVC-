@@ -1,0 +1,105 @@
+﻿@model List<HajjGuide.Models.BookmarkModel>
+@{
+    ViewData["Title"] = "Bookmark";
+}
+
+<body class="img js-fullheight" style="background-color:#352b28; height: fit-content; background-repeat: no-repeat; background-position: center; background-size: cover;">
+    <form method="post" action="@Url.Action("UpdateChecklist")">
+
+        @foreach (var item in Model)
+        
+        {
+            <div class="container-fluid" style="opacity: 0.94">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card mb-3, no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width: 100%;">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                           
+                                         
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                <a style="color:#021f43;  font-weight: bold; font-size:large;"><strong>  @item.StepDesc (@item.DescUrdu) </strong> </a>
+                                            </div>
+                                            <br>
+                                            @if (Model.Count != 0)
+                                            {
+                                                <section class="card mb-3, no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width: 100%;">
+                                                    <div class="card border-left-primary shadow h-100 py-2">
+                                                        <div class="card-body">
+                                                            <div class="row no-gutters align-items-center">
+                                                                <div class="col mr-2">
+
+                                                                    <input class="form-check-input" type="checkbox" id="checkbox-@item.PId" name="Prayers[@item.PId]" value="1" @(item.IsBookmark == 1 ? "checked" : "")>
+                                                                    <input type="hidden" name="Prayers[@item.PId]" value="0" />
+                                                                  
+                                                                    <div class="text-xs font-weight-bold text-warning 012text-uppercase mb-1">
+                                                                        <a style="color: black;">@item.Description <br> (@item.Transliteration) </a>
+                                                                    </div>
+                                                                </div>
+                                                     
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+
+                                                <br>
+                                                <section class="card mb-3, no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width: 100%;">
+                                                    <div class="card border-left-primary shadow h-100 py-2">
+                                                        <div class="card-body">
+                                                            <div class="row no-gutters align-items-center">
+                                                                <div class="col mr-2">
+                                                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                                        <a style="color: black;">@item.Translation</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+
+                                                <br>
+
+                                                @*              <input type="hidden" name="Prayers[@item.PId]" value="0" />
+                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                        <a>@item.User</a>
+                                        </div>
+
+                                        <section class="card mb-3, no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width: 100%;">
+                                        <div class="card border-left-primary shadow h-100 py-2">
+                                        <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                        <a style="color: black;">@item.Description <br> (@item.Desc) </a>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        </section> *@
+
+
+                                            }
+                                            
+                                            else
+                                            {
+                                                <p>Prayer not found.</p>
+                                            }
+                                           
+                                            <br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+        }
+        <button type="submit" class="btn btn-primary"> Done</button>
+    </form>
+</body>

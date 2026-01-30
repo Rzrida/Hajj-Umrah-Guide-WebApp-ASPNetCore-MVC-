@@ -1,0 +1,138 @@
+﻿@model List<HajjGuide.Models.HomeModel>
+@{
+    ViewData["Title"] = "Home Page";
+ 
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Hajj Guide</title>
+
+  
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Snippet - GoSNippets</title>
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css' rel='stylesheet'>
+    <link href='' rel='stylesheet'>
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <style>
+        html{
+            margin:0;
+            padding:0;
+        }
+        body {
+            justify-content: center;
+            align-items: center;
+            padding:0;
+            margin:0;
+            height:100%;
+            max-height:100%;
+            
+            
+        }
+         
+        
+        
+
+        .large-button {
+            display: inline-block;
+            padding: 10px 100px;
+            font-size: 20px;
+            background-color: #063970;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .center-container {
+            text-align: center;
+        }
+
+        .centered-h1 {
+            font-size: 36px;
+            color: #333;
+            margin: 60px;
+        }
+
+        .large-button:hover {
+            background-color: #1e81b0;
+        }
+
+        .large-button2:hover {
+            background-color: #1e81b0;
+        }
+
+        .large-button2 {
+            display: inline-block;
+            padding: 10px 100px;
+            font-size: 20px;
+            background-color: #063970;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .main-div-design {
+            justify-content: center;
+            display: grid;
+           
+            padding:100px;
+            
+        }
+
+        .centered-h1 {
+            color: #ffffff;
+        }
+
+      
+        
+    </style>
+   
+</head>
+
+<body class="img js-fullheight" style="background-image: url('/img/pexels-brokenadmiral-16012748.jpg');height:fit-content;background-repeat:no-repeat;background-position:center;">
+
+    
+    <div class="main-div-design" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+        <div>
+            <i>
+
+                <img src="/img/hajj.png" alt="Icon" style="height: 110px; width: 110px;">
+            </i>
+        </div>        <br>
+        <a href="https://localhost:7124/HajjType" class="large-button">Hajj</a>
+        <br>
+    
+        <form method="post" asp-action="FetchUmrahSteps" style="text-align: center;">
+            <div>
+                <i style="display: block; margin: 0 auto;">
+                    <img src="/img/umrah.png" alt="Icon" style="height: 100px; width: 100px;">
+                </i>
+            </div>
+            <br>
+            <div>
+                <a href="/Steps/Index?day=10000&calledfrom=Umrah" class="large-button2">Umrah</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>
+

@@ -1,0 +1,99 @@
+﻿@model List<HajjGuide.Models.Map1Model>
+@{
+    ViewData["Title"] = "Steps";
+}
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+</head>
+<body class="img js-fullheight" style="background-image: url('/img/pexels-brokenadmiral-16012748.jpg');height:fit-content;background-repeat:no-repeat;background-position:center;background-size:cover;">
+    <div class="container-fluid" style="opacity:0.96">
+        <div class="row">
+            <div class="col-md-12">
+                <section class=" card mb-3,no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width:100%">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1 text-gray-800">
+                                                <i><img style="height:100px; width:100px" src="/img/13-2-shopping-free-png-image-thumb.png" /></i>
+                                                <a href="https://localhost:7124/Checklist">Items to take along</a>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1 text-gray-800">
+                                                <i><img style="height:100px; width:100px" src="/img/4570764.png" /></i>
+                                                <a href="https://localhost:7124/DuaRequest">Dua Request</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <br>
+
+                <div class=" card mb-3,no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width:100%">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                        @*<div style="opacity: 0.3">*@
+                                        <a> Steps: </a>
+                                    </div>
+                                    <div class="container-fluid">
+                                        <div class="row">
+
+                                            <br>
+                                            <br>
+                                            <br>
+
+                                            @foreach (var step in Model)
+                                            {
+                                                
+                                                <div class="col-xl-3 col-md-6 mb-4">
+                                                    <div class="card border-left-primary shadow h-100 py-2">
+                                                        <div class="card-body">
+                                                            <div class="row no-gutters align-items-center">
+                                                                <div class="col mr-2">
+                                                                    <div class="fs-5 text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                                        <a href="@Url.Action("Index", "Prayers", new { stepId = step.id })">@step.Desc <br> (@step.urdudesc)</a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-auto">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>

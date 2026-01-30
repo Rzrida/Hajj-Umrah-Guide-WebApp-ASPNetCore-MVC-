@@ -1,0 +1,55 @@
+﻿@model HajjGuide.Models.SignUpModel
+@{
+    ViewData["Title"] = "Signup";
+}
+
+<body class="img js-fullheight" style="background-image: url('/img/pexels-brokenadmiral-16012748.jpg'); height: fit-content; background-repeat: no-repeat; background-position: center; background-size: cover;">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="h1 mb-0 font-weight-bold text-gray-800"></div>
+            <div class="col-md-12">
+                <div class="card mb-3 no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width:100%">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                        <h2>Signup</h2>
+                                        <form asp-controller="Signup" asp-action="Register" method="post">
+                                            <div>
+                                                <label>Email:</label>
+                                                <input asp-for="Email" />
+                                                <span asp-validation-for="Email"></span>
+                                            </div>
+                                            <br />
+                                            <div>
+                                                <label>Password:</label>
+                                                <input asp-for="Password" type="password" />
+                                                <span asp-validation-for="Password"></span>
+                                            </div>
+                                            <br />
+                                            <div>
+                                                <label>Username:</label>
+                                                <input asp-for="Username" />
+                                                <span asp-validation-for="Username"></span>
+                                            </div>
+                                            <!-- Other fields specific to the signup process can be added here -->
+
+                                            <button type="submit">Signup</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

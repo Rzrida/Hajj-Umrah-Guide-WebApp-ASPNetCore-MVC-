@@ -1,0 +1,75 @@
+﻿@model List<HajjGuide.Models.CommentsModel>
+@{
+    ViewData["Title"] = "ViewComments";
+}
+
+<body class="img js-fullheight" style="background-image: url('/img/pexels-brokenadmiral-16012748.jpg');height:fit-content;background-repeat:no-repeat;background-position:center;background-size:cover;">
+    <form>
+        @foreach (var Comment in Model)
+        {
+            <div class="container-fluid" style="opacity: 0.94">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card mb-3, no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width: 100%;">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+
+
+
+                                            <br>
+                                            @if (Model.Count != 0)
+                                            {
+
+
+
+                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                    <a style="color:#021f43;  font-weight: bold;"><strong>  @Comment.StepDesc (@Comment.UrduDesc) </strong> </a>
+                                                </div>
+                                                <section class="card mb-3, no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width: 100%;">
+                                                    <div class="card border-left-primary shadow h-100 py-2">
+                                                        <div class="card-body">
+                                                            <div class="row no-gutters align-items-center">
+                                                                <div class="col mr-2">
+                                                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                                        <a style="color: black;"><strong>Comment:</strong> @Comment.desc </a>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                    
+
+                                                <br>
+
+
+                                                <br>
+
+
+
+
+                                            }
+
+                                            else
+                                            {
+                                                <p>Prayer not found.</p>
+                                            }
+
+                                            <br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+        }
+
+    </form>
+</body>

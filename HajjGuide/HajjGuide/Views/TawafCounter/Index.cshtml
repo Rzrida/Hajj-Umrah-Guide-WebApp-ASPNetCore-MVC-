@@ -1,0 +1,87 @@
+﻿@model HajjGuide.Models.TawafCounterModel
+@{
+    ViewData["Title"] = "Prayers";
+}
+
+<body class="img js-fullheight" style="background-image: url('/img/pexels-brokenadmiral-16012748.jpg'); height: 100vh; background-repeat: no-repeat; background-position: center; background-size: cover;">
+    <style>
+       
+         .responsive-button {
+    height: 500px;
+    width: 500px;
+    background-color: black;
+    font-size: 100px;
+    color: #fff;
+  }
+
+  /* Media query for smaller screens */
+  @@media (max-width: 768px) {
+    .responsive-button {
+      height: 300px;
+      width: 300px;
+      font-size: 60px;
+    }
+  }
+
+  /* Media query for even smaller screens */
+  @@media (max-width: 480px) {
+    .responsive-button {
+      height: 200px;
+      width: 200px;
+      font-size: 40px;
+    }
+  }
+
+        .responsive-button2:hover {
+            background-color: #1e81b0;
+        }
+
+        .responsive-button2 {
+            display: inline-block;
+            padding: 15px 100px;
+            font-size: 20px;
+            background-color: #063970;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    
+    </style>
+    
+    <br>
+    <section class="card mb-3, no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width: 100%;">
+        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+            <div style="color:#021f43;  font-weight: bold;"><strong>  Tawaf Count: </strong> </div>
+        </div>
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        @using (Html.BeginForm("Increment", "TawafCounter", FormMethod.Post))
+                        {
+                            <button class="responsive-button" type="submit" name="count" value="@Model.Count">@Model.Count</button>
+                        }
+                        </div>
+                        <br/>
+                        <div class="col">
+
+                        @using (Html.BeginForm("Reset", "TawafCounter", FormMethod.Post))
+                        {
+                            <button class="reset-button; responsive-button2 " type="submit">Reset Count</button>
+                        }
+                       @*  <br/>
+                     
+                        @using (Html.BeginForm("Decrement", "TawafCounter", FormMethod.Post))
+                        {
+                            <button class="decrement-button; responsive-button2 " type="submit">Decrement Count</button>
+                        } *@
+                        <br/>
+                        <a href="https://localhost:7124/Prayers?stepId=6" class="responsive-button2 " type="submit">Go Back</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>

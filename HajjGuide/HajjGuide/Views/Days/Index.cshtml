@@ -1,0 +1,163 @@
+﻿@model List<HajjGuide.Models.DaysModel>
+@{
+    ViewData["Title"] = "DAYS";
+}
+<body class="img js-fullheight" style="background-image: url('/img/pexels-brokenadmiral-16012748.jpg');height:fit-content;background-repeat:no-repeat;background-position:center;background-size:cover;">
+<div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="h1 mb-0 font-weight-bold text-gray-800"></div>
+                <div class="col-md-12">
+                   
+
+                    <div class=" card mb-3,no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width:100%">
+                        <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1 ">
+                                            <a> Days</a>
+                                           
+                                        </div>
+                                       
+                                        <br>
+                                        
+                                         @foreach (var day in Model){
+
+                                    
+                                                <section class=" card mb-3,no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header"  style="width:100%">
+                                                    <div class="card border-left-primary shadow h-100 py-2">
+                                                        <div class="card-body">
+                                                            <div class="row no-gutters align-items-center">
+                                                                <div class="col mr-2">
+                                                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1 text-gray-800">
+
+                                                                        <a href="@Url.Action("Index", "Steps", new { day = day.Day, calledfrom = "Days" })">@day.Day &nbsp (@day.dayUrdu)</a>
+
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-auto">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+
+
+                                       @*@if ((day.ischecked == 0) && (day.language == "عربی/اردو" && day.language == "Translation")true)     {
+                                                         <p>This is displayed when the condition is true.</p>
+                                            }     else
+                                            {
+                                                         <p>This is displayed when the condition is false.</p>
+                                            }*@
+
+                                            <br>
+                                        }
+                                    
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        </div>
+</div>
+        </body>
+@* @model List<HajjGuide.Models.DaysModel>
+@{
+    ViewData["Title"] = "DAYS";
+}
+<body class="img js-fullheight" style="background-image: url('/img/pexels-brokenadmiral-16012748.jpg');height:fit-content;background-repeat:no-repeat;background-position:center;background-size:cover;">
+    <div>
+        <div class="container-fluid">
+            <!-- Rest of your HTML structure -->
+            <div class="row">
+                <!-- ... -->
+                <div class="h1 mb-0 font-weight-bold text-gray-800"></div>
+                <div class="col-md-12">
+                    <div class="card mb-3 no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width:100%">
+                        <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1 ">
+                                            <a> Days</a>
+                                        </div>
+                                        <br>
+                                        @foreach (var day in Model)
+                                        {
+                                            @if ((day.ischecked == 0) && (day.language == "عربی/اردو" || day.language == "Translation"))
+                                            {
+                                                <section class="card mb-3 no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width:100%">
+                                                    <div class="card border-left-primary shadow h-100 py-2">
+                                                        <div class="card-body">
+                                                            <div class="row no-gutters align-items-center">
+                                                                <div class="col mr-2">
+                                                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1 text-gray-800">
+                                                                        <a href="@Url.Action("Index", "Steps", new { day = day.Day, calledfrom = "Days" })">@day.Day &nbsp; (@day.dayUrdu)</a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-auto"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            }
+                                           
+                                            @if ((day.ischecked == 1) && (day.language == "عربی/اردو"))
+                                            {
+                                                <section class="card mb-3 no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width:100%">
+                                                    <div class="card border-left-primary shadow h-100 py-2">
+                                                        <div class="card-body">
+                                                            <div class="row no-gutters align-items-center">
+                                                                <div class="col mr-2">
+                                                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1 text-gray-800">
+                                                                        <a href="@Url.Action("Index", "Steps", new { day = day.Day, calledfrom = "Days" })">(@day.dayUrdu)</a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-auto"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            }
+                        
+                                            @if ((day.ischecked == 1) && (day.language == "Translation"))
+                                            {
+                                                <section class="card mb-3 no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width:100%">
+                                                    <div class="card border-left-primary shadow h-100 py-2">
+                                                        <div class="card-body">
+                                                            <div class="row no-gutters align-items-center">
+                                                                <div class="col mr-2">
+                                                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1 text-gray-800">
+                                                                        <a href="@Url.Action("Index", "Steps", new { day = day.Day, calledfrom = "Days" })">@day.Day</a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-auto"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            }
+                                            <br>
+                                        }
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ... -->
+            </div>
+            <!-- ... -->
+        </div>
+    </div>
+</body> *@

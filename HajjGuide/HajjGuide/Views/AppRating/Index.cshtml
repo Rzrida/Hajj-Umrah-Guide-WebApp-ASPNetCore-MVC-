@@ -1,0 +1,61 @@
+﻿@* @model HajjGuide.Models.AppRatingModel
+@{
+    ViewData["Title"] = "AppRating";
+}
+
+<h2>Rate the App</h2>
+
+<form asp-controller="AppRating" asp-action="RateApp" method="post">
+    <div class="form-group">
+        <label for="rating">Rating:</label>
+        <!-- Assuming you want to select the rating -->
+        <select class="form-control" id="rating" name="rating">
+            <option value="1">1 star</option>
+            <option value="2">2 stars</option>
+            <option value="3">3 stars</option>
+            <option value="4">4 stars</option>
+            <option value="5">5 stars</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success mt-3">@ViewBag.Message</div>
+}
+ *@
+
+@model HajjGuide.Models.AppRatingModel
+@{
+    ViewData["Title"] = "AppRating";
+}
+
+<h2>Rate the App</h2>
+
+@if (ViewBag.UserRating == 0)
+{
+    <form asp-controller="AppRating" asp-action="RateApp" method="post">
+        <div class="form-group">
+            <label for="rating">Rating:</label>
+            <!-- Assuming you want to select the rating -->
+            <select class="form-control" id="rating" name="rating">
+                <option value="1">1 star</option>
+                <option value="2">2 stars</option>
+                <option value="3">3 stars</option>
+                <option value="4">4 stars</option>
+                <option value="5">5 stars</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+}
+else
+{
+    <p>You have already rated the app with @ViewBag.UserRating stars.</p>
+}
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success mt-3">@ViewBag.Message</div>
+}

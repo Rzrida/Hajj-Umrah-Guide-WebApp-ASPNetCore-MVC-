@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Map2";
+}
+<body class="img js-fullheight" style="background-image: url('/img/pexels-brokenadmiral-16012748.jpg');height:fit-content;background-repeat:no-repeat;background-position:center;background-size:cover;">
+
+    <div class="container-fluid" style="opacity:0.94">
+        <div class="row">
+            <div class="col-md-12">
+                <div class=" card mb-3,no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width:100%;">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                        <a> Hajj Map: </a>
+                                    </div>
+
+                                    <section class="card mb-3, no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width: 100%;">
+                                        <div class="card border-left-primary shadow h-100 py-2">
+                                            <div class="card-body">
+                                                <div class="row no-gutters align-items-center">
+                                                    <div class="col mr-2 text-center">
+                                                  
+                                                        <img src="/img/map3.png" alt="Hajj Pilgrims Route" class="img-fluid" alt="Map-2" usemap="#Map-1">
+                                                        <map name="Map-1">
+                                                            <area shape="circle" coords="110,240,40" href=" @Url.Action("Index", "MapSteps", new { placeid = 1})" )" alt="path1">
+                                                            <area shape="circle" coords="190,370,40" href=" @Url.Action("Index", "MapSteps", new { placeid = 2})" )" alt="path2">
+                                                            <area shape="circle" coords="860,360,40" href=" @Url.Action("Index", "MapSteps", new { placeid = 6})" )" alt="path3">
+                                                            <area shape="circle" coords="1060,160,40" href=" @Url.Action("Index", "MapSteps", new { placeid = 7})" )" alt="path4">
+                                                            <area shape="circle" coords="910,230,40" href=" @Url.Action("Index", "MapSteps", new { placeid = 8})" )" alt="path5">
+                                                            <area shape="circle" coords="810,250,40" href=" @Url.Action("Index", "MapSteps", new { placeid = 6})" )" alt="path6">
+                                                            <area shape="circle" coords="650,270,40" href=" @Url.Action("Index", "MapSteps", new { placeid = 9})" )" alt="path7">
+                                                            <area shape="circle" coords="490,180,40" href=" @Url.Action("Index", "MapSteps", new { placeid = 1003})" )" alt="path8">
+                                                            
+                                                        </map>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>

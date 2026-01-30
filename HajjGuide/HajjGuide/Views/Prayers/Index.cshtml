@@ -1,0 +1,383 @@
+﻿@model HajjGuide.Models.MyViewModel
+@{
+    ViewData["Title"] = "Prayers";
+}
+
+
+@* @using (Html.BeginForm("Search", "Prayer", FormMethod.Post))
+{
+    <div>
+        <label for="stepId">Enter Step ID:</label>
+        <input type="text" id="stepId" name="stepId"> <!-- Provide name and id for input -->
+        <input type="submit" value="Search" />
+    </div>
+} *@
+
+
+@* <a class="border-left-primary" href="https://localhost:7124/AddComment"> Add Comment</a> *@
+
+<body class="img js-fullheight" style="background-image: url('/img/pexels-brokenadmiral-16012748.jpg'); height: fit-content; background-repeat: no-repeat; background-position: center; background-size: cover;">
+    <form method="post" action="@Url.Action("UpdateChecklist")">
+
+
+@* 
+@if (Model != null && Model.Count > 0)
+{
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Description</th>
+                <th>Translation</th>
+                <!-- Add other prayer fields here -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var prayer in Model)
+            {
+                <tr>
+                    <td>@prayer.PId</td>
+                    <td>@prayer.Description</td>
+                    <td>@prayer.translation</td>
+                    <!-- Display other prayer fields accordingly -->
+                </tr>
+            }
+        </tbody>
+    </table>
+    }
+    else
+{
+    <p>No prayers found for this step.</p>
+}
+ *@
+        @foreach (var item in Model.DuasList)
+        {
+           
+            <a style="background-color:red; padding:10px 20px" class="border-left-primary" href="@Url.Action("Index", "AddComment" , new { stepId=item.stepid })"> Add Comment </a>
+            <a style="background-color:grey; padding:10px 20px" class="border-left-primary" href="@Url.Action("Index", "ViewComment" , new { stepId=item.stepid })"> View Comment </a>
+            <br />
+            <br />
+            <div class="container-fluid" style="opacity: 0.94">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card mb-3, no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width: 100%;">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body"> 
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <input class="form-check-input" type="checkbox" id="checkbox-@item.PId" name="Prayers[@item.PId]" value="1" @(item.isBookmark == 1 ? "checked" : "")>
+                                            <input type="hidden" name="Prayers[@item.PId]" value="0" />
+                                            <input type="hidden" name="stepid" value=@item.stepid />
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                <a style="color:#021f43;  font-weight: bold;"><strong>  @item.StepDesc (@item.DescUrdu) </strong> </a>
+                                            </div>
+                                            <br>
+
+                                            @if (Model.DuasList.Count > 0)
+                                            {
+                                                @if (@item.Description != null)
+                                                {
+                                                    <section class="card mb-3, no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width: 100%;">
+                                                        <div class="card border-left-primary shadow h-100 py-2">
+                                                            <div class="card-body">
+                                                                <div class="row no-gutters align-items-center">
+                                                                    <div class="col mr-2">
+                                                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                                            <a style="color: black;">@item.Description </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </section>
+                                                }
+                                                @if (@item.translatration != null)
+                                                {
+                                                    <section class="card mb-3, no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width: 100%;">
+                                                        <div class="card border-left-primary shadow h-100 py-2">
+                                                            <div class="card-body">
+                                                                <div class="row no-gutters align-items-center">
+                                                                    <div class="col mr-2">
+                                                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                                            <a style="color: black;"> (@item.translatration) </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </section>
+                                                }
+                                                @if (@item.translation != null)
+                                                {
+                                                    <br>
+                                                    <section class="card mb-3, no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width: 100%;">
+                                                        <div class="card border-left-primary shadow h-100 py-2">
+                                                            <div class="card-body">
+                                                                <div class="row no-gutters align-items-center">
+                                                                    <div class="col mr-2">
+                                                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                                            <a style="color: black;">@item.translation</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </section>
+                                                }
+                                                <br>
+                                                <br>
+
+                                                @if (item.stepid == 6)
+                                                {
+                                                    <section class=" card mb-3,no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width:100%">
+                                                        <div class="card border-left-primary shadow h-100 py-2">
+                                                            <div class="card-body">
+                                                                <div class="row no-gutters align-items-center">
+                                                                    <div class="container-fluid">
+                                                                        <div class="row">
+                                                                            <div class="col">
+
+                                                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1 text-gray-800">
+                                                                                    <i><img style="height:100px; width:100px" src="/img/images_counter.png" /></i>
+                                                                                    <a href="https://localhost:7124/TawafCounter">Tawaf Counter</a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </section>
+                                                }
+                                                <br>
+                                            }
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+        }
+@* 
+        @foreach (var DR in Model)
+        {
+            <section class="card mb-3 no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width: 100%;">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                    <a style="color: black;">@DR.Desc</a>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="card mb-3 no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width: 100%;">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                    <a style="color: black;">@DR.Applicant</a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="card mb-3 no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width: 100%;">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                    <a style="color: black;">@DR.User</a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        } *@
+
+  
+        <button  type="submit"  id="submitButton" class="btn btn-primary">Done</button>
+        <br >
+        <br >
+    </form>
+    <form>
+        @foreach (var Requested in Model.DuaRequestsList)
+        {
+            <div class="container-fluid" style="opacity: 0.94">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card mb-3, no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width: 100%;">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <span class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                        <a style="color:#021f43;  font-weight: bold;"><strong>  @Requested.Desc (@Requested.UrduDesc) </strong> </a>
+                                    </span>
+                                  @*   <img src="img/delete.png" alt="Delete" style="width: 16px; height: 16px;" /> *@
+                                </div>
+
+
+                                            <br>
+                                            @if (Model.DuaRequestsList.Count != 0)
+                                            {
+                                               @*  <section class="card mb-3, no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width: 100%;">
+                                                    <div class="card border-left-primary shadow h-100 py-2">
+                                                        <div class="card-body">
+                                                            <div class="row no-gutters align-items-center">
+                                                                <div class="col mr-2">
+                                                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                                        <a style="color:#021f43;  font-weight: bold; font-size:large;"><strong> User: @Requested.User </strong> </a>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+
+ *@                                               
+ 
+                                           
+                                            <section class="card mb-3, no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width: 100%;">
+                                                    <div class="card border-left-primary shadow h-100 py-2">
+                                                        <div class="card-body">
+                                                            <div class="row no-gutters align-items-center">
+                                                                <div class="col mr-2">
+                                                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                                        <a style="color: black;"><strong>Prayer:</strong> @Requested.Description </a>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                                <section class="card mb-3, no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width: 100%;">
+                                                    <div class="card border-left-primary shadow h-100 py-2">
+                                                        <div class="card-body">
+                                                            <div class="row no-gutters align-items-center">
+                                                                <div class="col mr-2">
+                                                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                                        <a style="color:#021f43;  font-weight: bold; font-size:large;"><strong> Applicant:  @Requested.Applicant </strong> </a>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+
+                                                <br>
+
+
+                                                <br>
+
+
+
+
+                                            }
+
+                                            else
+                                            {
+                                                <p>Prayer not found.</p>
+                                            }
+
+                                            <br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                  
+            <br>
+            <br>
+        }
+        </form>
+
+@*         <from>
+    
+            @foreach (var Comment in Model.Comments)
+            {
+                <div class="container-fluid" style="opacity: 0.94">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card mb-3, no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width: 100%;">
+                                <div class="card border-left-primary shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+
+
+
+                                                <br>
+                                              @*   @if (Model.Comments.Count != 0)
+                                                {
+ *@
+
+
+                                                   @*  <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                        <a style="color:#021f43;  font-weight: bold;"><strong>  @Comment.StepDesc (@Comment.UrduDesc) </strong> </a>
+                                                    </div>
+                                                    <section class="card mb-3, no-gutters" role="complementary" data-block="timeline" aria-labelledby="instance-19048-header" style="width: 100%;">
+                                                        <div class="card border-left-primary shadow h-100 py-2">
+                                                            <div class="card-body">
+                                                                <div class="row no-gutters align-items-center">
+                                                                    <div class="col mr-2">
+                                                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                                            <a style="color: black;"><strong>Comment:</strong> @Comment.Desc </a>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </section>
+
+
+                                                    <br>
+
+
+                                                    <br>
+
+
+
+
+                                                @* } *@
+
+
+                                              
+@* 
+                                                <br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+            }
+        }
+     
+       
+
+</from>  *@
+    
+</body>
